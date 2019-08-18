@@ -1,7 +1,8 @@
  import React from 'react';
  import { Link } from 'gatsby'
+ import Img from 'gatsby-image'
  import {
-    Badge,
+    
     Card,
     CardTitle,
     CardText,
@@ -9,9 +10,13 @@
     CardBody,
   } from 'reactstrap'
 
- const Post =({ title, author, path, date, body}) => {
+ const Post =({ title, author, path, date, body, fluid}) => {
      return(
          <Card>
+             <Link to={Path2D}>
+      <Img className="card-image-top" fluid={fluid} />
+      </Link>
+
              <CardBody>
                  <CardTitle>
                      <Link to={Path2D}>{title}</Link>
