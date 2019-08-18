@@ -6,14 +6,15 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const AboutPage = () => (
-  <Layout>
-    <SEO title="About" />
-    <h1>About page</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-    
-    </div>
+  <Layout pageTitle="About us">
+    <SEO title="About"  keywords={[`gatsby`, `application`, `react`]} />
+    <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quibusdam
+      pariatur magnam nulla quis nobis rerum vitae in delectus modi
+      exercitationem amet quasi, distinctio illo blanditiis, adipisci, odio unde
+      minima numquam architecto! Odit sequi facere sit odio maiores possimus
+      ratione!
+    </p>
 
   </Layout>
 )

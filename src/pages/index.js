@@ -6,23 +6,19 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post"
-import {Row, Col} from "reactstrap";
-import Sidebar from "../components/Sidebar"
+
 
 const IndexPage = () => (
-  <Layout>
+  <Layout pageTitle="College Blog">
     <SEO title="Home" />
-    <h1>Home page</h1>
-    <Row>
-      <Col md="8">
       <StaticQuery query={indexQuery} render={data => {
           return(
             <div>
             {data.allMarkdownRemark.edges.map(({node}) => (
               <Post
-              // key={node.id}
+              key={node.id}
               title={node.frontmatter.title}
-              path={node.frontmatter.path}
+              slug={node.fields.slug}
               author={node.frontmatter.author}
               body={node.excerpt}
               date={node.frontmatter.date}
@@ -34,11 +30,6 @@ const IndexPage = () => (
           )
     }}
     />
-      </Col>
-      <Col md="4">
-        <Sidebar/>
-      </Col>
-    </Row>
   </Layout>
 )
 
@@ -56,7 +47,7 @@ query{
           title
           date(formatString: "MMM Do YYYY")
           author
-          path
+          
           tags
           image {
             childImageSharp {
@@ -65,6 +56,9 @@ query{
               }
             }
           }
+        }
+        fields{
+          slug
         }
         excerpt
       }

@@ -11,16 +11,16 @@
     CardBody,
   } from 'reactstrap'
 
- const Post =({ title, author, tags, path, date, body, fluid}) => {
+ const Post =({ title, author, tags, slug, date, body, fluid}) => {
      return(
          <Card>
-             <Link to={Path2D}>
+             <Link to={slug}>
       <Img className="card-image-top" fluid={fluid} />
       </Link>
 
              <CardBody>
                  <CardTitle>
-                     <Link to={Path2D}>{title}</Link>
+                     <Link to={slug}>{title}</Link>
                  </CardTitle>
                  <CardSubtitle>
                 <span className="text-info">{date}</span> by{' '}
@@ -40,7 +40,7 @@
       </ul>
 
                 <Link
-        to={Path2D}
+        to={slug}
         className="btn btn-outline-primary float-right text-uppercase"
       >
           Read More
