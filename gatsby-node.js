@@ -6,6 +6,7 @@
 
 // You can delete this file if you're not using it
 const path = require('path')
+const authors = require('./src/util/authors')
 const { slugify } = require('./src/util/utilityFunctions')
 exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions
@@ -54,11 +55,10 @@ exports.onCreateNode = ({ node, actions }) => {
       component: singlePostTemplates,
       context: {
         // Passing slug for template to use to fetch the post
-        slug: node.fields.slug
+        slug: node.fields.slug,
         // Find author imageUrl from author array and pass it to template
-        // imageUrl: authors.find(x => x.name === node.frontmatter.author)
-        //   .imageUrl,
-      }
+        imageUrl: authors.find(x => x.name === node.frontmatter.author).imageUrl
+      },
     })
   })
 
