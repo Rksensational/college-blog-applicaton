@@ -107,12 +107,23 @@ exports.onCreateNode = ({ node, actions }) => {
       },
     })
   })
+  // Create author posts pages
+  authors.forEach(author => {
+    createPage({
+      path: `/author/${slugify(author.name)}`,
+      component: templates.authorPosts,
+      context: {
+        authorName: author.name,
+        imageUrl: author.imageUrl,
+      },
+    })
+  })
   // Create posts pagination pages
   const postsPerPage = 2
   const numberOfPages = Math.ceil(posts.length / postsPerPage)
 
   Array.from({ length: numberOfPages }).forEach((_, index) => {
-    const isFirstPage = index === 0
+    const isFirstPage = index === 1
     const currentPage = index + 1
 
     // Skip first page because of index.js
