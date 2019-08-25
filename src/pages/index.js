@@ -1,38 +1,44 @@
-import React from "react"
+import React from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { graphql, StaticQuery } from 'gatsby'
+import Post from '../components/Post'
+import PaginationLinks from '../components/PaginationLinks'
 
-
-import Layout from "../components/layout"
-
-import SEO from "../components/seo"
-import { graphql, StaticQuery } from "gatsby";
-import Post from "../components/Post"
-
-
-const IndexPage = () => (
-  <Layout pageTitle="College Blog">
-    <SEO title="Home" />
-      <StaticQuery query={indexQuery} render={data => {
-          return(
+const IndexPage = () => {
+  const postsPerPage = 2
+  let numberOfPages
+  return (
+    <Layout pageTitle="College Blog">
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <StaticQuery
+        query={indexQuery}
+        render={data => {
+          numberOfPages = Math.ceil(
+            data.allMarkdownRemark.totalCount / postsPerPage
+          )
+          return (
             <div>
-            {data.allMarkdownRemark.edges.map(({node}) => (
-              <Post
-              key={node.id}
-              title={node.frontmatter.title}
-              slug={node.fields.slug}
-              author={node.frontmatter.author}
-              body={node.excerpt}
-              date={node.frontmatter.date}
-              fluid={node.frontmatter.image.childImageSharp.fluid}
-              tags={node.frontmatter.tags}
-            />
-            ))}
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <Post
+                  key={node.id}
+                  title={node.frontmatter.title}
+                  slug={node.fields.slug}
+                  author={node.frontmatter.author}
+                  body={node.excerpt}
+                  date={node.frontmatter.date}
+                  fluid={node.frontmatter.image.childImageSharp.fluid}
+                  tags={node.frontmatter.tags}
+                />
+              ))}
+              <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
             </div>
           )
-    }}
-    />
-  </Layout>
-)
-
+        }}
+      />
+    </Layout>
+  )
+}    
 const indexQuery = graphql`
 query{
   allMarkdownRemark(
