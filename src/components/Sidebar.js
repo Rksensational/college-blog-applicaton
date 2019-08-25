@@ -103,21 +103,35 @@ const Sidebar = ({ author, authorFluid }) => (
         <CardTitle className="text-center text-uppercase mb-3">
           Contact Form
         </CardTitle>
-        <form name="Contact" method= "POST" data-netlify="true">
-  <p>
-    <label>Your Name: <input type="text" name="name" placeholder="Your Name" /></label>   
+<form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+  <p class="hidden">
+    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
   </p>
   <p>
-    <label>Your Email: <input type="email" name="email" placeholder="Your email address.." /></label>
-  </p>
-  
-  <p>
-    <label>Message: <textarea name="message" placeholder="Enter Your Message"></textarea></label>
+    <label>Email: <input type="text" name="email" /></label>
   </p>
   <p>
-    <button type="submit"  className="btn btn-outline-success text-uppercase">Send</button>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
   </p>
 </form>
+//         <form name="Contact" method= "POST" data-netlify="true">
+//   <p>
+//     <label>Your Name: <input type="text" name="name" placeholder="Your Name" /></label>   
+//   </p>
+//   <p>
+//     <label>Your Email: <input type="email" name="email" placeholder="Your email address.." /></label>
+//   </p>
+  
+//   <p>
+//     <label>Message: <textarea name="message" placeholder="Enter Your Message"></textarea></label>
+//   </p>
+//   <p>
+//     <button type="submit"  className="btn btn-outline-success text-uppercase">Send</button>
+//   </p>
+// </form>
       </CardBody>
     </Card>
 
