@@ -97,6 +97,16 @@ exports.onCreateNode = ({ node, actions }) => {
       tagPostCounts,
     },
   })
+  // Tag posts pages
+  tags.forEach(tag => {
+    createPage({
+      path: `/tag/${_.kebabCase(tag)}`,
+      component: templates.tag,
+      context: {
+        tag,
+      },
+    })
+  })
 
   })
   }
