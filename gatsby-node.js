@@ -8,6 +8,7 @@
 const path = require('path')
 const authors = require('./src/util/authors')
 const { slugify } = require('./src/util/utilityFunctions')
+const _ = require('lodash')
 exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === 'MarkdownRemark') {
@@ -23,8 +24,15 @@ exports.onCreateNode = ({ node, actions }) => {
   exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
   
-    // Page templates
-    const singlePostTemplates = path.resolve('src/templates/single-post.js')
+  // Page templates
+  const templates = {
+    singlepost: path.resolve('src/templates/single-post.js'),
+    postList: path.resolve('src/templates/post-list.js'),
+    tag: path.resolve('src/templates/tag-posts.js'),
+    tagsPage: path.resolve('src/templates/tags-page.js'),
+    authorPosts: path.resolve('src/templates/author-posts.js'),
+  }
+
     return graphql(`
     
     {
@@ -33,6 +41,7 @@ exports.onCreateNode = ({ node, actions }) => {
           node {
             frontmatter {
               author
+              tags
           
             }
             fields {
@@ -52,7 +61,7 @@ exports.onCreateNode = ({ node, actions }) => {
   posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: singlePostTemplates,
+      component: templates.singlepost,
       context: {
         // Passing slug for template to use to fetch the post
         slug: node.fields.slug,
@@ -60,6 +69,33 @@ exports.onCreateNode = ({ node, actions }) => {
         imageUrl: authors.find(x => x.name === node.frontmatter.author).imageUrl
       },
     })
+  })
+    // Get all tags
+    let tags = []
+    _.each(posts, edge => {
+      if (_.get(edge, 'node.frontmatter.tags')) {
+        tags = tags.concat(edge.node.frontmatter.tags)
+      }
+    })
+
+    let tagPostCounts = {} // { tutorial: 2, design: 1}
+  tags.forEach(tag => {
+    // Or 0 cause it might not exist yet
+    tagPostCounts[tag] = (tagPostCounts[tag] || 0) + 1
+  })
+
+  // Remove duplicates
+  tags = _.uniq(tags)
+
+  
+  // Tags page (all tags)
+  createPage({
+    path: '/tags',
+    component: templates.tagsPage,
+    context: {
+      tags,
+      tagPostCounts,
+    },
   })
 
   })
