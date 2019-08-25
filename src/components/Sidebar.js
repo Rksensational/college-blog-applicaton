@@ -103,7 +103,7 @@ const Sidebar = ({ author, authorFluid }) => (
         <CardTitle className="text-center text-uppercase mb-3">
           Contact Form
         </CardTitle>
-        <form action= "POST" data-netlify="true">
+        <form name="Contact" method= "POST" data-netlify="true">
   <p>
     <label>Your Name: <input type="text" name="name" placeholder="Your Name" /></label>   
   </p>
