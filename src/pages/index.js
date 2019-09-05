@@ -4,6 +4,7 @@ import SEO from '../components/seo'
 import { graphql, StaticQuery } from 'gatsby'
 import Post from '../components/Post'
 import PaginationLinks from '../components/PaginationLinks'
+<script>
 
 var message = "function disabled you are not allowed ";
 
@@ -12,6 +13,7 @@ function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which =
 if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
 
 document.onmousedown = rtclickcheck;
+</script>
 
 const IndexPage = () => {
   const postsPerPage = 2
