@@ -83,7 +83,7 @@ const Sidebar = ({ author, authorFluid }) => (
         <CardTitle className="text-center text-uppercase mb-3">
           Newsletter
         </CardTitle>
-        <Form className="text-center" data-netlify="true">
+        <Form className="text-center" method="POST" name="contact">
           <FormGroup>
             <Input
               type="email"
