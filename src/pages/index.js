@@ -5,13 +5,13 @@ import { graphql, StaticQuery } from 'gatsby'
 import Post from '../components/Post'
 import PaginationLinks from '../components/PaginationLinks'
 
-var message = "function disabled you are not allowed ";
+// var message = "function disabled you are not allowed ";
 
-function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
+// function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
 
-if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
+// if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
 
-document.onmousedown = rtclickcheck;
+// document.onmousedown = rtclickcheck;
 
 const IndexPage = () => {
   const postsPerPage = 2
