@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.collegeblog.tk">
-    <img alt="Gatsby" src="images/logobg1 (1).png" width="60" />
+    <img alt="Gatsby" src="src\images\logobg1.png" width="60" />
   </a>
 </p>
 <h1 align="center">
