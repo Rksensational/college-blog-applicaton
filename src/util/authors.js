@@ -3,7 +3,7 @@ const authors = [
       name: 'Ritesh Kumar',
       imageUrl: 'john.jpg',
       bio:
-        'John has been a front-end and UI designer fpr over 10 years, he is a brilliant artist',
+      'Ritesh Kumar Founder-Coding Street and ME Undergraduate',
       facebook: 'https://www.facebook.com/',
       twitter: 'https://www.twitter.com/',
       instagram: 'https://www.instagram.com/',
@@ -11,10 +11,10 @@ const authors = [
       linkedin: 'https://www.linkedin.com/',
     },
     {
-      name: 'RK Sensational',
+      name: 'Jane',
       imageUrl: 'jane.jpg',
       bio:
-        'Jane is a back-end developer, she specializes in security and her favourite stack is the MERN stack',
+        'Jane Blogger',
       facebook: 'https://www.facebook.com/',
       twitter: 'https://www.twitter.com/',
       instagram: 'https://www.instagram.com/',

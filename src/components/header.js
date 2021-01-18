@@ -28,7 +28,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar fixed="top" light expand="sm">
+        <Navbar fixed="top" light expand="sm" color="black">
           <div className="container">
             <NavbarBrand href="/">{this.props.siteTitle}</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
