@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-<bold>nTheta Hacks 1 Project Submission 2021 JANUARY </bold>
+<h1 align = "center">Theta Hacks 1 Project Submission 2021 JANUARY </h1>
 <p align="center">
   <a href="https://www.collegeblog.tk">
     <img alt="Gatsby" src="src\images\logobg1.png" width="100" />
@@ -11,7 +11,5 @@
 </h1>
 
 College Blog is the platform for blogging.
-
-Theta Hacks 1 Project Submission 2021 JAN 
 
 
